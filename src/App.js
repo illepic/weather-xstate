@@ -1,7 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMachine } from "@xstate/react";
+
+import { state } from "./state.machine";
+
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [current, send] = useMachine(state, { devTools: true });
+
   return (
     <div className="App">
       <header className="App-header">
